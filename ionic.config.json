@@ -1,5 +1,12 @@
 {
   "name": "Plickr",
   "integrations": {},
-  "type": "angular"
+  "type": "angular",
+  "/api": {
+    "target": "http://localhost:8080/Plickr-war/Resources",
+    "secure": false,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
 }
