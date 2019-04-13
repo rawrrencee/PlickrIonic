@@ -1,6 +1,8 @@
 {
   "name": "Plickr",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular",
   "/api": {
     "target": "http://localhost:8080/Plickr-war/Resources",

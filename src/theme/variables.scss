@@ -75,3 +75,45 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 }
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+$colors: (
+  primary:    #387ef5,
+  secondary:  #32db64,
+  danger:     #f53d3d,
+  light:      #f4f4f4,
+  dark:       #222,
+  black:    #000,
+  white:    #fff,
+  gray:     #A7A9AC,
+  facebook:   #3A589B,
+  twitter:    #2AAAE0,
+  youtube:    #D21919
+);
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+$tabs-md-tab-text-transform-active: 0;
+$tabs-md-tab-text-transition: 0;
+$tabs-md-tab-icon-transform-active: 0;
+$tabs-md-tab-color-active: #000;
+$tabs-md-tab-color-inactive: #C7C7C7;
+$card-md-box-shadow: #fff;
+$button-md-ripple-background-color: 0;
+$button-md-outline-ripple-background-color: 0;
+$button-md-clear-ripple-background-color: 0;
+$searchbar-md-input-border-radius: 0;
+$searchbar-md-input-box-shadow: 0;
+$segment-button-md-border-color-activated: #000;
+$segment-button-md-text-color-activated: #000;
+$segment-button-md-text-color: #fff;
+$segment-button-md-border-bottom-width: 1px;
+$checkbox-md-icon-border-radius: 50%;

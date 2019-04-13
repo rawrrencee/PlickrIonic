@@ -1,0 +1,105 @@
+$transparent-white: rgba(255, 255, 255, 0.6);
+
+.toolbar-content,
+span {
+  --color: white;
+}
+.toolbar-background,
+ion-header {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+.header-md::after,
+ion-content {
+  --background: url("/../assets/img/login-bg.jpg") no-repeat center center / cover !important;
+  background-color: transparent;
+}
+
+ion-card,
+.card-ios,
+.card-md {
+  border: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-style: none !important;
+  position: relative;
+  text-align: center;
+}
+.card {
+  border: 0 !important;
+  box-shadow: 0 !important;
+  border: none !important;
+  border-style: none !important;
+}
+
+ion-list {
+  border-radius: 3px;
+}
+
+// Content
+.scroll-content {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.logo {
+  width: 40%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 50px;
+}
+
+// Input items
+ion-item {
+  border-radius: 3px !important;
+  padding-left: 10px !important;
+  margin-bottom: 15px !important;
+  margin-bottom: 10px;
+  color: #000 !important;
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  font-size: 0.9em;
+}
+.item-inner {
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+
+.login-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-transform: none;
+  border-radius: 3px !important;
+}
+
+// HR with text in the middle effect
+.strike {
+  display: block;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.strike > span {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+}
+.strike > span:before,
+.strike > span:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 9999px;
+  height: 1px;
+  background: $transparent-white;
+}
+.strike > span:before {
+  right: 100%;
+  margin-right: 15px;
+}
+.strike > span:after {
+  left: 100%;
+  margin-left: 15px;
+}

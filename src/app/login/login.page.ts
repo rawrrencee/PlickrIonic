@@ -60,8 +60,8 @@ export class LoginPage implements OnInit {
           else if (response.user.accessRightEnum == 'FREE') {
             user.userType = AccessRightEnum.FREE;
           }
-          else if (response.user.accessRightEnum == 'PAID') {
-            user.userType = AccessRightEnum.PAID;
+          else if (response.user.accessRightEnum == 'PRO') {
+            user.userType = AccessRightEnum.PRO;
           } 
 
           if (user != null) {
@@ -69,7 +69,7 @@ export class LoginPage implements OnInit {
             this.sessionService.setCurrentUser(user);
             this.loginError = false;
 
-            window.location.reload();
+            this.router.navigateByUrl('/tabs/feed');
           }
           else {
             this.loginError = true;

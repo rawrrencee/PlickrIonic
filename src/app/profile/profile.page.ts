@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Router } from '@angular/router';
+
+import { SessionService } from '../session.service';
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
@@ -7,9 +11,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilePage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router,
+    public sessionService: SessionService) {
+   }
 
   ngOnInit() {
+  }
+
+  userLogout(): void {
+    this.sessionService.setIsLogin(false);
+    this.sessionService.setCurrentUser(null);
+
+    this.router.navigateByUrl('/login');
   }
 
 }
