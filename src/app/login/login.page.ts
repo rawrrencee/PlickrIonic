@@ -7,7 +7,7 @@ import { AlertController } from '@ionic/angular';
 import { SessionService } from '../session.service';
 import { UserService } from '../user.service';
 import { User } from '../user';
-import { AccessRightEnum } from '../access-right-enum.enum';
+import { UserTypeEnum } from '../user-type-enum.enum';
 
 @Component({
   selector: 'app-login',
@@ -56,14 +56,14 @@ export class LoginPage implements OnInit {
         response => {
           let user: User = response.user;
 
-          if (response.user.accessRightEnum == 'ADMIN') {
-            user.userType = AccessRightEnum.ADMIN;
+          if (response.user.userTypeEnum == 'ADMIN') {
+            user.userType = UserTypeEnum.ADMIN;
           }
-          else if (response.user.accessRightEnum == 'FREE') {
-            user.userType = AccessRightEnum.FREE;
+          else if (response.user.userTypeEnum == 'FREE') {
+            user.userType = UserTypeEnum.FREE;
           }
-          else if (response.user.accessRightEnum == 'PRO') {
-            user.userType = AccessRightEnum.PRO;
+          else if (response.user.userTypeEnum == 'PRO') {
+            user.userType = UserTypeEnum.PRO;
           } 
 
           if (user != null) {
@@ -71,7 +71,7 @@ export class LoginPage implements OnInit {
             this.sessionService.setCurrentUser(user);
             this.loginError = false;
 
-            this.router.navigateByUrl('/tabs/feed');
+            this.router.navigate(['tabs/feed']);
           }
           else {
             this.presentAlert();
@@ -87,6 +87,10 @@ export class LoginPage implements OnInit {
     }
     else {
     }
+  }
+
+  registerNavigation():void {
+    this.router.navigate(['register']);
   }
 
 

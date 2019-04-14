@@ -62,7 +62,7 @@ ion-item {
   margin-bottom: 15px !important;
   margin-bottom: 10px;
   color: #000 !important;
-  background-color: #4A5664 !important;
+  background-color: #4a5664 !important;
   font-size: 0.9em;
 }
 .item-inner {
@@ -70,7 +70,6 @@ ion-item {
   border-bottom: 0 !important;
   box-shadow: none !important;
 }
-
 .login-button {
   display: block;
   margin-left: auto;
@@ -80,6 +79,19 @@ ion-item {
   text-transform: none;
   font-size: 0.9em;
   border-radius: 3px !important;
+}
+.register-button {
+  display: block;
+  --color: #000;
+  text-transform: none;
+  font-size: 0.9em;
+  --ripple-color: none;
+  --color-activated: none;
+  --color-focused: none;
+  --background: none;
+  --background-activated: none !important;
+  --background-focused: none !important;
+  --box-shadow: none;
 }
 
 // HR with text in the middle effect
@@ -110,4 +122,14 @@ ion-item {
 .strike > span:after {
   left: 100%;
   margin-left: 15px;
+}
+
+// Footer
+.footer {
+  text-align: center;
+  height: 50px;
+}
+.footer-md::before {
+  background-image: none;
+  border-radius: 30px;
 }

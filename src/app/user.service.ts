@@ -4,8 +4,13 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 
+import { SessionService } from './session.service';
 import { User } from './user';
-import { AccessRightEnum } from './access-right-enum.enum';
+import { UserTypeEnum } from './user-type-enum.enum';
+
+const httpOptions = {
+	headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +31,16 @@ export class UserService {
 	{
 		return this.httpClient.get<any>(this.baseUrl + "/userLogin?email=" + email + "&password=" + password).pipe
 		(
+			catchError(this.handleError)
+		);
+	}
+
+	registerUser(newUser: User): Observable<any> {
+		let registerUserReq = {
+			"newUser": newUser
+		};
+
+		return this.httpClient.put<any>(this.baseUrl + "/registerUser", registerUserReq, httpOptions).pipe(
 			catchError(this.handleError)
 		);
 	}

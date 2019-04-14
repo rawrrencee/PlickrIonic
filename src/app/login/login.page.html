@@ -17,28 +17,21 @@
 				</ion-item>
 
 				<ion-item>
-					<ion-input type="password" id="password" name="password" placeholder="Password" [(ngModel)]="password" minlength="4" maxlength="32" #inpassword="ngModel"></ion-input>
+					<ion-input type="password" id="password" name="password" placeholder="Password"
+						[(ngModel)]="password" minlength="4" maxlength="32" #inpassword="ngModel"></ion-input>
 				</ion-item>
 
 				<ion-button ion-button block outline type="submit" color="dark" class="login-button">Login
 				</ion-button>
 				<p>- OR -</p>
-				<ion-button ion-button block clear (click)="loginFb()" color="light" class="login-button"><ion-icon name="logo-facebook"></ion-icon>&nbsp; Login with Facebook</ion-button>
-				<ion-button ion-button block clear (click)="loginGooglePlus()" color="light" class="login-button"><ion-icon name="logo-google"></ion-icon>&nbsp; Login with Google</ion-button>
+				<ion-button ion-button block clear (click)="loginFb()" color="light" class="login-button">
+					<ion-icon name="logo-facebook"></ion-icon>&nbsp; Login with Facebook
+				</ion-button>
+				<ion-button ion-button block clear (click)="loginGooglePlus()" color="light" class="login-button">
+					<ion-icon name="logo-google"></ion-icon>&nbsp; Login with Google
+				</ion-button>
 
 			</form>
-
-		</ion-card-content>
-
-	</ion-card>
-
-	<ion-card *ngIf="sessionService.getIsLogin() == true">
-
-		<ion-card-content>
-
-			<span *ngIf="sessionService.getCurrentUser().userType == 'ADMIN'">ADMIN</span>
-			<span *ngIf="sessionService.getCurrentUser().userType == 'FREE'">FREE</span>
-			<span *ngIf="sessionService.getCurrentUser().userType == 'PRO'">PRO</span>
 
 		</ion-card-content>
 
@@ -55,4 +48,12 @@
 		</ion-button>
 	</ion-toolbar>
 
+</ion-footer>
+
+<ion-footer>
+	<ion-toolbar class="footer">
+		<ion-button ion-button block outline (click)="registerNavigation()" class="register-button">
+			<span>Don't have an account? <strong>Sign up here</strong>.</span>
+		</ion-button>
+	</ion-toolbar>
 </ion-footer>

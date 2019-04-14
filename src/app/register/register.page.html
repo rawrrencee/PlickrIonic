@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button href="/login">
+        <ion-icon slot="start" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+
+    <ion-card-content>
+
+      <div *ngIf="resultSuccess == true" style="color: blue;">
+        {{message}}
+      </div>
+
+      <div *ngIf="resultError == true" style="color: red;">
+        {{message}}
+      </div>
+
+      <form #registerUserForm="ngForm" (ngSubmit)="register(registerUserForm)">
+
+        <div style="color: red;">
+
+          <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched || submitted)" class="errorText">
+            <div *ngIf="firstName.errors.required">
+              First Name is required.
+            </div>
+          </div>
+
+          <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched || submitted)" class="errorText">
+            <div *ngIf="lastName.errors.required">
+              Last Name is required.
+            </div>
+          </div>
+
+          <div *ngIf="email.invalid && (email.dirty || email.touched || submitted)" class="errorText">
+            <div *ngIf="email.errors.required">
+              Email is required.
+            </div>
+          </div>
+
+          <div *ngIf="password.invalid && (password.dirty || password.touched || submitted)" class="errorText">
+            <div *ngIf="password.errors.required">
+              Password is required.
+            </div>
+          </div>
+
+        </div>
+
+        <ion-list>
+
+          <ion-item>
+            <ion-label><b>First Name</b></ion-label>
+            <ion-input type="text" id="firstName" name="firstName" [(ngModel)]="newUser.firstName" required="true"
+              #firstName="ngModel"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label><b>Last Name</b></ion-label>
+            <ion-input type="text" id="lastName" name="lastName" [(ngModel)]="newUser.lastName" required="true"
+              #lastName="ngModel">
+            </ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label><b>Email</b></ion-label>
+            <ion-input type="text" id="email" name="email" [(ngModel)]="newUser.email" required="true" #email="ngModel">
+            </ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label><b>Password</b></ion-label>
+            <ion-input type="password" id="password" name="password" [(ngModel)]="newUser.password" required="true"
+              #password="ngModel"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-button (click)="clear()">
+              Clear
+            </ion-button>
+            <ion-button type="submit" ion-button block>
+              Create
+            </ion-button>
+          </ion-item>
+
+        </ion-list>
+
+      </form>
+
+    </ion-card-content>
+
+  </ion-card>
+</ion-content>

@@ -1,21 +1,25 @@
-import { AccessRightEnum } from './access-right-enum.enum';
+import { UserTypeEnum } from './user-type-enum.enum';
 
 export class User {
 
     userId: number;
-    userType: AccessRightEnum;
+    userType: UserTypeEnum;
     isLoggedIn: boolean;
+    firstName: string;
+    lastName: string;
     email: string;
     password: string;
-    dateOfBirth: Date;
+    dateOfBirth: string;
     dateCreated: Date;
     paidExpiry: Date;
     profileImage: string;
 
-    constructor(userId?: number, userType?: AccessRightEnum, isLoggedIn?: boolean, email?: string, password?: string, dateOfBirth?: Date, dateCreated?: Date, paidExpiry?: Date, profileImage?: string) {
+    constructor(userId?: number, userType?: UserTypeEnum, isLoggedIn?: boolean, firstName?: string, lastName?: string, email?: string, password?: string, dateOfBirth?: string, dateCreated?: Date, paidExpiry?: Date, profileImage?: string) {
         this.userId = userId;
         this.userType = userType;
         this.isLoggedIn = isLoggedIn;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.dateOfBirth = dateOfBirth;
