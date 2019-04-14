@@ -18,12 +18,16 @@ ion-content {
 ion-card,
 .card-ios,
 .card-md {
+  display: block;
+  margin-left: 10%;
+  margin-right: 10%;
   border: 0 !important;
   box-shadow: none !important;
   border: none !important;
   border-style: none !important;
   position: relative;
   text-align: center;
+  background-color: #fff;
 }
 .card {
   border: 0 !important;
@@ -58,10 +62,11 @@ ion-item {
   margin-bottom: 15px !important;
   margin-bottom: 10px;
   color: #000 !important;
-  background-color: rgba(255, 255, 255, 0.2) !important;
+  background-color: #4A5664 !important;
   font-size: 0.9em;
 }
 .item-inner {
+  border-radius: 3px !important;
   border-bottom: 0 !important;
   box-shadow: none !important;
 }
@@ -70,7 +75,10 @@ ion-item {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
   text-transform: none;
+  font-size: 0.9em;
   border-radius: 3px !important;
 }
 

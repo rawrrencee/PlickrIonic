@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { AlertController } from '@ionic/angular';
 
 import { SessionService } from '../session.service';
 import { UserService } from '../user.service';
@@ -24,6 +25,7 @@ export class LoginPage implements OnInit {
 
 
   constructor(private router: Router,
+    public alertController: AlertController,
     public sessionService: SessionService,
     private userService: UserService) {
     this.submitted = false;
@@ -72,10 +74,12 @@ export class LoginPage implements OnInit {
             this.router.navigateByUrl('/tabs/feed');
           }
           else {
+            this.presentAlert();
             this.loginError = true;
           }
         },
         error => {
+          this.presentAlert();
           this.loginError = true;
           this.errorMessage = error
         }
@@ -93,5 +97,17 @@ export class LoginPage implements OnInit {
 
     window.location.reload();
   }
+
+  async presentAlert() 
+	{
+		const alert = await this.alertController.create({
+			header: 'Login failed',
+			subHeader: 'Email/Password is wrong or does not exist.',
+			message: 'Please check your input details or register for a new account.',
+			buttons: ['OK']
+		});
+
+		await alert.present();
+	}
 
 }
