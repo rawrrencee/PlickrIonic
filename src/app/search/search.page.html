@@ -8,8 +8,8 @@
   <ion-searchbar class="searchbar" (input)="getItems($event)"></ion-searchbar>
 </ion-toolbar>
 
-
 <ion-content>
+
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
       refreshingText="Refreshing...">
@@ -40,7 +40,9 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-img [src]="'http://placeimg.com/1280/540/animals'"></ion-img>
+      <ion-col>
+        <ion-img [src]="'http://placeimg.com/1200/600/animals'"></ion-img>
+      </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
