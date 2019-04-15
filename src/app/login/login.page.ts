@@ -93,8 +93,6 @@ export class LoginPage implements OnInit {
     this.router.navigate(['register']);
   }
 
-
-
   userLogout(): void {
     this.sessionService.setIsLogin(false);
     this.sessionService.setCurrentUser(null);

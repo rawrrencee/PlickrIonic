@@ -1,11 +1,81 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Search
-    </ion-title>
-  </ion-toolbar>
+<ion-toolbar>
+  <ion-buttons slot="end">
+    <ion-button (click)="openShoppingCart()">
+      <ion-badge *ngIf="shoppingCart.length > 0">{{ shoppingCart.length }}</ion-badge>
+      <ion-icon slot="icon-only" name="cart"></ion-icon>
+    </ion-button>
+  </ion-buttons>
   <ion-searchbar class="searchbar" (input)="getItems($event)"></ion-searchbar>
-</ion-header>
+</ion-toolbar>
+
 
 <ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-img [src]="'http://placeimg.com/250/250/animals'"></ion-img>
+      </ion-col>
+      <ion-col>
+        <ion-img [src]="'http://placeimg.com/250/250/tech'"></ion-img>
+      </ion-col>
+      <ion-col>
+        <ion-img [src]="'http://placeimg.com/250/250/arch'"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-img [src]="'http://placeimg.com/300/300/people'"></ion-img>
+      </ion-col>
+      <ion-col>
+        <ion-img [src]="'http://placeimg.com/300/300/tech'"></ion-img>
+      </ion-col>
+      <ion-col>
+        <ion-img [src]="'http://placeimg.com/300/300/arch'"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-img [src]="'http://placeimg.com/1280/540/animals'"></ion-img>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-img [src]="'http://placeimg.com/500/1000/animals'"></ion-img>
+      </ion-col>
+      <ion-col>
+        <ion-img [src]="'http://placeimg.com/250/500/nature/sepia'"></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div *ngFor="let cat of items" class="category-block">
+
+    <ion-row no-padding class="category-banner">
+      <ion-col text-left button tappable (click)="cat.expanded = !cat.expanded" align-self-center>
+        {{ cat.category }}
+      </ion-col>
+    </ion-row>
+
+    <ion-slides [options]="sliderConfig">
+      <ion-slide *ngFor="let product of cat.products">
+        <div *ngIf="cat.expanded">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>
+                {{ product.name }} - ${{ product.price }}
+              </ion-card-title>
+              <ion-card-content>
+                <img src="http://placeimg.com/300/300/animals">
+                <ion-button expand="full" (click)="addToCart(product)">Add to Cart</ion-button>
+              </ion-card-content>
+            </ion-card-header>
+          </ion-card>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </div>
 </ion-content>
