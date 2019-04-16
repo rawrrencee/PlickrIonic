@@ -1,56 +1,20 @@
 <ion-content>
-  <br />
   <ion-row class="user-details-section">
-    <ion-col class="user-image-wrapper">
-      <ion-img [src]="'http://placeimg.com/300/300/people'"></ion-img>
-    </ion-col>
-    <ion-col class="user-info-wrapper">
-      <ion-row class="user-data-row">
-        <ion-col size="9">
-          <h3 class="user-name">
-            {{sessionService.getCurrentUser().firstName}}
-          </h3>
-          <h5 class="user-title">
-            {{sessionService.getCurrentUser().lastName}}
-          </h5>
-        </ion-col>
-        <ion-col class="membership-col">
-          <span class="user-membership">
-            <span *ngIf="sessionService.getCurrentUser().userType == 'ADMIN'">ADMIN</span>
-            <span *ngIf="sessionService.getCurrentUser().userType == 'FREE'">FREE</span>
-            <span *ngIf="sessionService.getCurrentUser().userType == 'PRO'">PRO</span>
-          </span>
-        </ion-col>
-      </ion-row>
-      <ion-row class="actions-row">
-        <ion-col class="main-actions">
-        </ion-col>
-        <ion-col class="secondary-actions">
-          <ion-button class="more-btn" size="small" fill="clear" color="medium">
-            <ion-icon slot="icon-only" name="more"></ion-icon>
-          </ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-col>
+      <ion-row class="user-image-wrapper">
+          <ion-img class="user-profile-pic" [src]="'http://placeimg.com/300/300/people'"></ion-img>
+        </ion-row>
+        <ion-row style="width: 100%; margin-top: 15px;">
+            <ion-col class="user-name">
+              {{sessionService.getCurrentUser().firstName}} {{sessionService.getCurrentUser().lastName}}
+              <span  class="user-membership">{{sessionService.getCurrentUser().userType}}</span>
+            </ion-col>
+        </ion-row>
+        <ion-row class="user-follow">
+            <div style=" width: 100%; text-align: center;">{{sessionService.getCurrentUser().followerList.length}} Followers &ndash; {{sessionService.getCurrentUser().followingList.length}} Following</div>
+        </ion-row>
+        
   </ion-row>
-  <ion-row class="user-stats-section">
-    <ion-col class="user-stats-wrapper" size="6">
-
-      <span class="stat-value">
-        {{sessionService.getCurrentUser().followerList.length}}
-      </span>
-      <span class="stat-name">Followers</span>
-
-    </ion-col>
-    <ion-col class="user-stats-wrapper" size="6">
-
-      <span class="stat-value">
-        {{sessionService.getCurrentUser().followingList.length}}
-      </span>
-      <span class="stat-name">Following</span>
-
-    </ion-col>
-  </ion-row>
+  
   <div class="user-about-section">
     <h3 class="details-section-title">About</h3>
     <p class="user-description">

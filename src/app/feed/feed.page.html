@@ -9,13 +9,113 @@
 <ion-content>
     <ion-card>
       <ion-card-content>
-        <ion-list>
-          hi there
-          <ion-item *ngFor="let photo of photos" >
-            <ion-label>{{photo.name}}</ion-label>
-            <ion-img alt="fail load" [src]="photo.url"></ion-img>
-          </ion-item>
-        </ion-list>
+        <ion-img [src]="'http://placeimg.com/640/480/any'"></ion-img>
+        <ion-row>
+          <ion-col class="feed-profile-pic"><ion-avatar><ion-img [src]="'http://placeimg.com/120/120/people'"></ion-img></ion-avatar></ion-col>
+          <ion-col class="feed-content-tab">
+              <ion-card-title class="feed-username">Donald Trump</ion-card-title>
+              <ion-card-subtitle>Asgard, Rainbow Bridge</ion-card-subtitle>             
+          </ion-col>
+          <ion-label class="feed-content">Amazing view -POTUS</ion-label>
+        </ion-row>     
+        <hr>
+        <ion-row>
+          <ion-col>
+              <ion-icon name="star-outline"></ion-icon>
+              <ion-label style="margin-left: 25px;">1</ion-label>
+          </ion-col>
+          <ion-col>
+              <ion-icon name="chatbubbles"></ion-icon>
+              <ion-label style="margin-left: 25px;">5</ion-label>
+          </ion-col>
+          <ion-col>
+              <ion-icon style="position: absolute; right: 1%;" name="redo"></ion-icon>
+          </ion-col>
+        </ion-row>      
       </ion-card-content>
     </ion-card>
+
+    <ion-card>
+        <ion-card-content>
+          <ion-img [src]="'http://placeimg.com/640/480/grayscale'"></ion-img>
+          <ion-row>
+            <ion-col class="feed-profile-pic"><ion-avatar><ion-img [src]="'http://placeimg.com/120/120/people'"></ion-img></ion-avatar></ion-col>
+            <ion-col class="feed-content-tab">
+                <ion-card-title class="feed-username">Marek Zackaburg</ion-card-title>
+                <ion-card-subtitle>PhaceBook</ion-card-subtitle>             
+            </ion-col>
+            <ion-label class="feed-content">I am color-blind</ion-label>
+          </ion-row>     
+          <hr>
+          <ion-row>
+            <ion-col>
+                <ion-icon name="star-outline"></ion-icon>
+                <ion-label style="margin-left: 25px;">1</ion-label>
+            </ion-col>
+            <ion-col>
+                <ion-icon name="chatbubbles"></ion-icon>
+                <ion-label style="margin-left: 25px;">5</ion-label>
+            </ion-col>
+            <ion-col>
+                <ion-icon style="position: absolute; right: 1%;" name="redo"></ion-icon>
+            </ion-col>
+          </ion-row>      
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+          <ion-card-content>
+            <ion-img [src]="'http://placeimg.com/640/480/tech'"></ion-img>
+            <ion-row>
+              <ion-col class="feed-profile-pic"><ion-avatar><ion-img [src]="'http://placeimg.com/120/120/people'"></ion-img></ion-avatar></ion-col>
+              <ion-col class="feed-content-tab">
+                  <ion-card-title class="feed-username">Steven Jobless</ion-card-title>
+                  <ion-card-subtitle>Pear Inc</ion-card-subtitle>             
+              </ion-col>
+              <ion-label class="feed-content">Once you know JSP, you know JSF<br>Once you know JSF, you know Angular<br>Once you know Angular, you know Ionic</ion-label>
+            </ion-row>     
+            <hr>
+            <ion-row>
+              <ion-col>
+                  <ion-icon name="star-outline"></ion-icon>
+                  <ion-label style="margin-left: 25px;">1</ion-label>
+              </ion-col>
+              <ion-col>
+                  <ion-icon name="chatbubbles"></ion-icon>
+                  <ion-label style="margin-left: 25px;">5</ion-label>
+              </ion-col>
+              <ion-col>
+                  <ion-icon style="position: absolute; right: 1%;" name="redo"></ion-icon>
+              </ion-col>
+            </ion-row>      
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card>
+            <ion-card-content>
+              <ion-img [src]="'http://placeimg.com/640/480/animals'"></ion-img>
+              <ion-row>
+                <ion-col class="feed-profile-pic"><ion-avatar><ion-img [src]="'http://placeimg.com/120/120/people'"></ion-img></ion-avatar></ion-col>
+                <ion-col class="feed-content-tab">
+                    <ion-card-title class="feed-username">Donald Duck</ion-card-title>
+                    <ion-card-subtitle>Old McDonald's farm</ion-card-subtitle>             
+                </ion-col>
+                <ion-label class="feed-content">E-I-E-I-O</ion-label>
+              </ion-row>     
+              <hr>
+              <ion-row>
+                <ion-col>
+                    <ion-icon name="star-outline"></ion-icon>
+                    <ion-label style="margin-left: 25px;">1</ion-label>
+                </ion-col>
+                <ion-col>
+                    <ion-icon name="chatbubbles"></ion-icon>
+                    <ion-label style="margin-left: 25px;">5</ion-label>
+                </ion-col>
+                <ion-col>
+                    <ion-icon style="position: absolute; right: 1%;" name="redo"></ion-icon>
+                </ion-col>
+              </ion-row>      
+            </ion-card-content>
+          </ion-card>
 </ion-content>
