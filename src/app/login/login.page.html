@@ -50,7 +50,7 @@
 
 </ion-footer>
 
-<ion-footer>
+<ion-footer *ngIf="sessionService.getIsLogin() == false">
 	<ion-toolbar class="footer">
 		<ion-button ion-button block outline (click)="registerNavigation()" class="register-button">
 			<span>Don't have an account? <strong>Sign up here</strong>.</span>

@@ -31,6 +31,14 @@ export class SessionService {
     sessionStorage.currentUser = JSON.stringify(currentUser);
   }
 
+  getUserId(): number {
+    return sessionStorage.userId;
+  }
+
+  setUserId(userId: number): void {
+    sessionStorage.userId = userId;
+  }
+
 
   getEmail(): string {
     return sessionStorage.email;

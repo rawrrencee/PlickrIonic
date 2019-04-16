@@ -13,8 +13,10 @@ export class User {
     dateCreated: Date;
     paidExpiry: Date;
     profileImage: string;
+    followingList: User[];
+    followerList: User[];
 
-    constructor(userId?: number, userType?: UserTypeEnum, isLoggedIn?: boolean, firstName?: string, lastName?: string, email?: string, password?: string, dateOfBirth?: string, dateCreated?: Date, paidExpiry?: Date, profileImage?: string) {
+    constructor(userId?: number, userType?: UserTypeEnum, isLoggedIn?: boolean, firstName?: string, lastName?: string, email?: string, password?: string, dateOfBirth?: string, dateCreated?: Date, paidExpiry?: Date, profileImage?: string, followingList?: User[], followerList?: User[]) {
         this.userId = userId;
         this.userType = userType;
         this.isLoggedIn = isLoggedIn;
@@ -26,6 +28,8 @@ export class User {
         this.dateCreated = dateCreated;
         this.paidExpiry = paidExpiry;
         this.profileImage = profileImage;
+        this.followerList = followerList;
+        this.followingList = followingList;
     }
 
 }

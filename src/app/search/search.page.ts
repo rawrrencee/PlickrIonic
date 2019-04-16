@@ -5,7 +5,9 @@ import { ShoppingCartService } from '../shoppingcart.service';
 @Component({
   selector: 'app-search',
   templateUrl: 'search.page.html',
-  styleUrls: ['search.page.scss']
+  styleUrls: [
+    'search.page.scss',
+    'search.responsive.scss']
 })
 export class SearchPage implements OnInit {
 

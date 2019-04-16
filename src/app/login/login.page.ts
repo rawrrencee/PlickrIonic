@@ -68,6 +68,7 @@ export class LoginPage implements OnInit {
 
           if (user != null) {
             this.sessionService.setIsLogin(true);
+            this.sessionService.setUserId(response.user.userId);
             this.sessionService.setCurrentUser(user);
             this.loginError = false;
 
