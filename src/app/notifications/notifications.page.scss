@@ -1,4 +1,15 @@
 // Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
+ion-item.grid {
+  --inner-padding-start: 0;
+  --inner-padding-end: 0;
+  --inner-padding-top: 0;
+  --inner-padding-bottom: 0;
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-top: 0;
+  --padding-bottom: 0;
+}
+
 .notifications-content {
   ion-item-divider {
     --background: var(--ion-color-light);
@@ -38,13 +49,19 @@
       .details-name {
         margin-top: 0px;
         margin-bottom: 5px;
-        font-size: 16px;
+        font-size: 12px;
         font-weight: 400;
         letter-spacing: 0.2px;
         color: var(--ion-color-secondary);
       }
 
       .details-description {
+        font-size: 12px;
+        margin: 0px;
+      }
+
+      .date-created {
+        padding-top: 5px;
         font-size: 12px;
         margin: 0px;
       }

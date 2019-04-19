@@ -22,7 +22,7 @@ export class ProfilePage implements OnInit {
     this.sessionService.setIsLogin(false);
     this.sessionService.setCurrentUser(null);
 
-    this.router.navigateByUrl('/login');
+    this.router.navigate(['login']);
   }
 
 }

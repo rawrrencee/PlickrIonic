@@ -20,7 +20,8 @@ export class NotificationsPage implements OnInit {
   public notifications: Notification[] = [];
   retrieveNotificationsError: boolean;
 
-  constructor(private router: ActivatedRoute,
+  constructor(private activatedRouter: ActivatedRoute,
+    private router : Router,
     private notificationsService: NotificationsService,
     private photoService: PhotoService) {
     this.retrieveNotificationsError = false;
@@ -49,8 +50,10 @@ export class NotificationsPage implements OnInit {
         console.log('getNotificationsOfUser.ts: ' + error);
       }
     );
+  }
 
-
+  viewPhotoDetails(event, photo) {
+    this.router.navigate(["/photo/viewPhotoDetails/" + photo.photoId]);
   }
 
 }
