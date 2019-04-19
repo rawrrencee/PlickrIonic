@@ -10,5 +10,19 @@
     "pathRewrite": {
       "^/api": ""
     }
+  },
+  "/uploads": {
+    "target": "http://localhost:8080/Plickr-war/uploadedFiles",
+    "secure": false,
+    "pathRewrite": {
+      "^/uploads": ""
+    }
+  },
+  "/assets": {
+    "target": "http://localhost:8080/Plickr-war",
+    "secure": false,
+    "pathRewrite": {
+      "^/assets": ""
+    }
   }
 }

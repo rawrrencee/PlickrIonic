@@ -4,6 +4,26 @@ page-search {
   }
 }
 
+ion-item.grid {
+  --inner-padding-start: 0;
+  --inner-padding-end: 0;
+  --inner-padding-top: 0;
+  --inner-padding-bottom: 0;
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-top: 0;
+  --padding-bottom: 0;
+}
+
+ion-img.scaled {
+  width: 100%;
+  height: 200px;
+}
+
+.cover {
+  object-fit: cover;
+}
+
 ion-badge {
   color: #fff;
   position: absolute;

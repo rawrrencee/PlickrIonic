@@ -26,6 +26,18 @@ export class PhotoService {
     );
   }
 
+  retrievePublicPhotos(): Observable<any> {
+    return this.httpClient.get<any>(this.baseUrl + "/retrievePublicPhotos").pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  retrievePhotoDetails(photoId: number): Observable<any> {
+    return this.httpClient.get<any>(this.baseUrl + "/photoDetails?photoId=" + photoId).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   private handleError(error: HttpErrorResponse) {
     let errorMessage: string = "";
 
