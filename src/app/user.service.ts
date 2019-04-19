@@ -13,26 +13,24 @@ const httpOptions = {
 };
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class UserService {
 
-  baseUrl: string = "/api/User";
-	
-	
-	
-	constructor(private httpClient: HttpClient)
-	{		
+	baseUrl: string = "/api/User";
+
+
+
+	constructor(private httpClient: HttpClient) {
 	}
-	
-	
-	
-	userLogin(email: string, password: string): Observable<any>
-	{
+
+
+
+	userLogin(email: string, password: string): Observable<any> {
 		return this.httpClient.get<any>(this.baseUrl + "/userLogin?email=" + email + "&password=" + password).pipe
-		(
-			catchError(this.handleError)
-		);
+			(
+				catchError(this.handleError)
+			);
 	}
 
 	registerUser(newUser: User): Observable<any> {
@@ -44,24 +42,25 @@ export class UserService {
 			catchError(this.handleError)
 		);
 	}
-	
-	
-	
-	private handleError(error: HttpErrorResponse)
-	{
+
+	retrievePhotoUploader(photoId: number): Observable<any> {
+		return this.httpClient.get<any>(this.baseUrl + "/retrievePhotoUploader?photoId=" + photoId).pipe(
+			catchError(this.handleError)
+		);
+	}
+
+	private handleError(error: HttpErrorResponse) {
 		let errorMessage: string = "";
-		
-		if (error.error instanceof ErrorEvent) 
-		{		
+
+		if (error.error instanceof ErrorEvent) {
 			errorMessage = "An unknown error has occurred: " + error.error.message;
-		} 
-		else 
-		{		
+		}
+		else {
 			errorMessage = "A HTTP error has occurred: " + `HTTP ${error.status}: ${error.error.message}`;
 		}
-		
+
 		console.error(errorMessage);
-		
-		return throwError(errorMessage);		
+
+		return throwError(errorMessage);
 	}
 }

@@ -19,7 +19,7 @@
       {{photoToView.name}}
     </h3>
     <span class="details-uploader">
-      Andy (Placeholder)
+      {{uploader.firstName}} {{uploader.lastName}}
     </span>
     <span class="details-price">
       $100 (Placeholder)
@@ -30,16 +30,16 @@
   </div>
   <ion-row class="details-purchase-options-row">
       <ion-col size="12" class="aux-action-col">
-        <ion-button class="size-chart-btn" color="medium" size="small" fill="clear">Size Chart</ion-button>
+        <ion-button class="size-chart-btn" color="medium" size="small" fill="clear">Information</ion-button>
       </ion-col>
       <ion-col size="6">
-        <ion-button class="select-variant-btn" color="medium" expand="block" fill="outline" (click)="openColorChooser()">Color</ion-button>
+        <ion-button class="select-variant-btn" color="medium" expand="block" fill="outline" (click)="openColorChooser()">Type</ion-button>
       </ion-col>
       <ion-col size="6">
-        <ion-button class="select-variant-btn" color="medium" expand="block" fill="outline" (click)="openSizeChooser()">Size</ion-button>
+        <ion-button class="select-variant-btn" color="medium" expand="block" fill="outline" (click)="openSizeChooser()">Quantity</ion-button>
       </ion-col>
       <ion-col size="12" class="main-call-to-action-col">
-        <ion-button class="add-to-cart-btn" color="dark" expand="block" fill="solid">Add to cart</ion-button>
+        <ion-button class="add-to-cart-btn" color="dark" expand="block" fill="solid">Add to Cart</ion-button>
       </ion-col>
     </ion-row>
     <div class="details-description-wrapper">

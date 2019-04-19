@@ -15,14 +15,32 @@
       refreshingText="Refreshing...">
     </ion-refresher-content>
   </ion-refresher>
-
-
+  
   <ion-grid>
+      <ion-row>
+        <ion-col size="4" *ngFor="let photo of photosLoaded">
+          <div>
+            <ion-item detail="false" button="true" class="grid" lines="none" (click)="viewPhotoDetails($event, photo)">
+              <ion-img click class="scaled cover" [src]="'/assets' + photo.url"></ion-img>
+            </ion-item>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading..">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+  <!--   <ion-grid>
     <ion-row>
       <ion-col size="4" *ngFor="let photo of photos">
-        <ion-item button="true" class="grid" lines="none" (click)="viewPhotoDetails($event, photo)">
-          <ion-img click class="scaled cover" [src]="'/assets' + photo.url"></ion-img>
-        </ion-item>
+        <div *ngIf="photo.url.includes('resources/img')">
+          <ion-item button="true" class="grid" lines="none" (click)="viewPhotoDetails($event, photo)">
+            <ion-img click class="scaled cover" [src]="'/assets' + photo.url"></ion-img>
+          </ion-item>
+        </div>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -52,5 +70,5 @@
         </div>
       </ion-slide>
     </ion-slides>
-  </div>
+  </div> -->
 </ion-content>

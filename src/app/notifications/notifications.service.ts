@@ -4,6 +4,7 @@ import { Observable, throwError, from } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { SessionService } from '../session.service';
+import { PhotoService } from '../photo.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,13 +16,14 @@ export class NotificationsService {
   constructor(private httpClient: HttpClient,
     private sessionService: SessionService) { }
 
-  public getData(): Observable<any> {
+  public getNotificationsOfUser(): Observable<any> {
     const dataObservable = this.httpClient.get<any>(this.baseUrl + "/userNotifications?userId=" + this.sessionService.getUserId()).pipe(
       catchError(this.handleError)
     );
 
     return dataObservable;
   }
+
 
   private handleError(error: HttpErrorResponse) {
     let errorMessage: string = "";

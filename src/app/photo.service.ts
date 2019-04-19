@@ -38,6 +38,13 @@ export class PhotoService {
     );
   }
 
+  retrievePhotoByInteractionId(interactionId: number): Observable<any> {
+    return this.httpClient.get<any>(this.baseUrl + "/retrievePhotoFromInteraction?interactionId=" + interactionId).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+
   private handleError(error: HttpErrorResponse) {
     let errorMessage: string = "";
 

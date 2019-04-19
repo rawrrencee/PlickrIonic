@@ -5,7 +5,9 @@ import { Location } from '@angular/common';
 import { AlertController } from '@ionic/angular';
 
 import { PhotoService } from '../../photo.service';
+import { UserService } from '../../user.service';
 import { Photo } from '../../photo';
+import { User } from '../../user';
 import { PrivacyLevelEnum } from 'src/app/privacy-level-enum.enum';
 
 @Component({
@@ -21,9 +23,12 @@ export class ViewPhotoDetailsPage implements OnInit {
   dateUploaded: Date;
   privacyLevel: PrivacyLevelEnum;
 
-  photoToView: Photo;
+  public uploader: User = new User();
+  retrieveUserError: boolean;
 
+  public photoToView: Photo = new Photo();
   retrievePhotoError: boolean;
+
   error: boolean;
 	errorMessage: string;
 	resultSuccess: boolean;
@@ -31,6 +36,7 @@ export class ViewPhotoDetailsPage implements OnInit {
   constructor(private router: Router,
     private activatedRoute: ActivatedRoute,				
     private photoService: PhotoService,
+    private userService: UserService,
     public alertController: AlertController,
     private location: Location) { 
       this.retrievePhotoError = false;
@@ -46,6 +52,15 @@ export class ViewPhotoDetailsPage implements OnInit {
         this.photoToView = response.photo;
       }, error => {
         this.retrievePhotoError = true;
+        console.log('viewPhotoDetails.ts: ' + error);
+      }
+    );
+
+    this.userService.retrievePhotoUploader(this.photoId).subscribe(
+      response => {
+        this.uploader = response.user;
+      }, error => {
+        this.retrieveUserError = true;
         console.log('viewPhotoDetails.ts: ' + error);
       }
     );
