@@ -56,6 +56,12 @@ export class PhotoService {
     );
   }
 
+  retrieveUserPhotos(userId: Number): Observable<any>{
+    return this.httpClient.get<any>(this.baseUrl + "/retrieveUserPhotos?userId=" + userId).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   retrievePhotoDetails(photoId: number): Observable<any> {
     return this.httpClient.get<any>(this.baseUrl + "/photoDetails?photoId=" + photoId).pipe(
       catchError(this.handleError)

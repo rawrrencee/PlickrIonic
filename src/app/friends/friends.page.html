@@ -1,9 +1,44 @@
-<ion-header>
+<ion-header no-border>
   <ion-toolbar>
-    <ion-title>friends</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="app/user"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-segment class="user-friends-segment" mode="md" (ionChange)="segmentChanged($event)" [(ngModel)]="category">
+    <ion-segment-button mode="md" value="followers">
+      <ion-label>Followers</ion-label>
+    </ion-segment-button>
+    <ion-segment-button mode="md" value="following">
+      <ion-label>Following</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="category">
+
+    <ion-list *ngSwitchCase="'followers'">
+      <ion-item *ngFor="let follower of followersList">
+        <ion-avatar>
+          <ion-img [src]="'/assets' + follower.profileImage"></ion-img>
+        </ion-avatar>
+        <ion-label>{{follower.firstName}}</ion-label>
+        <ion-button class="user-action" expand="block" size="small" color="primary">Unfollow</ion-button>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'following'">
+      <ion-item *ngFor="let following of followingsList">
+        <ion-avatar>
+          <ion-img [src]="'/assets' + following.profileImage"></ion-img>
+        </ion-avatar>
+        <ion-label>{{following.firstName}}</ion-label>
+        <ion-button class="user-action" expand="block" size="small" color="primary">Unfollow</ion-button>
+      </ion-item>
+    </ion-list>
+
+  </div>
 
 </ion-content>

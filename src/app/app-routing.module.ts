@@ -9,7 +9,8 @@ const routes: Routes = [
   { path: '', loadChildren: './tabs/tabs.module#TabsPageModule' },
   { path: 'shoppingcart', loadChildren: './shoppingcart/shoppingcart.module#ShoppingcartPageModule' },
   { path: 'photo/viewPhotoDetails/:photoId', loadChildren: './photo/view-photo-details/view-photo-details.module#ViewPhotoDetailsPageModule' },
-  { path: 'friends', loadChildren: './friends/friends.module#FriendsPageModule' },  { path: 'user-photos', loadChildren: './photo/user-photos/user-photos.module#UserPhotosPageModule' },
+  { path: 'friends/:userId', loadChildren: './friends/friends.module#FriendsPageModule' },
+  { path: 'photo/userPhotos/:userId', loadChildren: './photo/user-photos/user-photos.module#UserPhotosPageModule' },
 
 
 

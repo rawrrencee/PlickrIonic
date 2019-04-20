@@ -25,7 +25,7 @@
   <div class="user-friends-section">
     <ion-row class="heading-row">
       <h3 class="details-section-title">Following</h3>
-      <a class="heading-call-to-action" [routerLink]="['/tabs/feed']">See all</a>
+      <a class="heading-call-to-action" (click)="friends($event)">See all</a>
     </ion-row>
     <ion-row class="friends-row" >
       <ion-col class="friend-item" size="2" *ngFor="let pageFriend of pageFriends">
@@ -40,7 +40,7 @@
   <div class="user-photos-section">
     <ion-row class="heading-row">
       <h3 class="details-section-title">Photos</h3>
-      <a class="heading-call-to-action">See all</a>
+      <a class="heading-call-to-action" (click)="userPhotos($event)">See all</a>
     </ion-row>
 
   </div>
