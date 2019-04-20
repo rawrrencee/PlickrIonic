@@ -1,0 +1,69 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content class="photo-details-content">
+    <ion-row>
+      <ion-col >
+        <ion-item class="grid" lines="none">
+          <ion-img class="scaled" [src]="'/assets' + photoToView.url"></ion-img>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <div class="description-wrapper">
+      <h3 class="details-name">
+        {{photoToView.name}}
+      </h3>
+      <span class="details-uploader">
+        {{uploader.firstName}} {{uploader.lastName}}
+      </span>
+      <span class="details-price">
+        $100 (Placeholder)
+      </span>
+      <span class="details-sale-price">
+        $50 (Placeholder)
+      </span>
+    </div>
+    <ion-row class="details-purchase-options-row">
+        <ion-col size="12" class="aux-action-col">
+          <ion-button class="size-chart-btn" color="medium" size="small" fill="clear">Information</ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button class="select-variant-btn" color="medium" expand="block" fill="outline" (click)="openColorChooser()">Type</ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button class="select-variant-btn" color="medium" expand="block" fill="outline" (click)="openSizeChooser()">Quantity</ion-button>
+        </ion-col>
+        <ion-col size="12" class="main-call-to-action-col">
+          <ion-button class="add-to-cart-btn" color="dark" expand="block" fill="solid">Add to Cart</ion-button>
+        </ion-col>
+      </ion-row>
+      <div class="details-description-wrapper">
+          <h3 class="detail-title">Description</h3>
+          <p class="details-description">
+            {{photoToView.description}}
+          </p>
+        </div>
+        <div class="details-description-wrapper">
+            <h3 class="detail-title">Date uploaded</h3>
+            <p class="details-description">
+              {{photoToView.dateUploaded | date: "dd MMM yyyy HH:mm"}}
+            </p>
+          </div>
+        <div class="details-description-wrapper">
+          <h3 class="detail-title">Privacy Level</h3>
+          <p class="details-description">
+            {{photoToView.privacyLevel}}
+          </p>
+        </div>
+        <div class="details-description-wrapper">
+            <h3 class="detail-title">Photo ID</h3>
+            <p class="details-description">
+              {{photoToView.photoId}}
+            </p>
+          </div>
+  </ion-content>

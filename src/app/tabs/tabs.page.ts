@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 import { PhotoCaptureService } from '../photo-capture.service';
 
 @Component({
@@ -8,11 +10,12 @@ import { PhotoCaptureService } from '../photo-capture.service';
 })
 export class TabsPage {
 
-  constructor(private photoCaptureService : PhotoCaptureService) {
+  constructor(private photoCaptureService : PhotoCaptureService,
+    private router: Router) {
   }
 
-  openCamera() {
-    this.photoCaptureService.openCamera();
+  uploadPhoto() {
+    this.router.navigate(['photo/uploadphoto']);
   }
 
 }
