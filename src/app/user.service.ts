@@ -49,6 +49,18 @@ export class UserService {
 		);
 	}
 
+	retrieveUserByPhoto(photoId: number): Observable<any> {
+		return this.httpClient.get<any>(this.baseUrl + "/retrieveUserFromPhoto?photoId=" + photoId).pipe(
+		  catchError(this.handleError)
+		);
+	}
+
+	retrieveFriends(userId: Number): Observable<any>{
+		return this.httpClient.get<any>(this.baseUrl + "/retrieveFriends?userId=" + userId).pipe(
+		  catchError(this.handleError)
+		);
+	}
+
 	private handleError(error: HttpErrorResponse) {
 		let errorMessage: string = "";
 

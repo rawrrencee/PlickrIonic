@@ -15,47 +15,23 @@
         
   </ion-row>
   
-  <div class="user-about-section">
+  <!-- <div class="user-about-section">
     <h3 class="details-section-title">About</h3>
     <p class="user-description">
-      {{sessionService.getCurrentUser().address}}
+      {{sessionService.getCurrentUser().billingAddress1}}
     </p>
-  </div>
+  </div> -->
 
   <div class="user-friends-section">
     <ion-row class="heading-row">
-      <h3 class="details-section-title">Friends</h3>
+      <h3 class="details-section-title">Following</h3>
       <a class="heading-call-to-action" [routerLink]="['/tabs/feed']">See all</a>
     </ion-row>
-    <ion-row class="friends-row">
-      <ion-col class="friend-item" size="2">
-        <ion-img [src]="'http://placeimg.com/205/205/people'"></ion-img>
+    <ion-row class="friends-row" >
+      <ion-col class="friend-item" size="2" *ngFor="let pageFriend of pageFriends">
+        <ion-img [src]="'/assets' + pageFriend.profileImage"></ion-img>
         <span class="friend-name">
-          Alex
-        </span>
-      </ion-col>
-      <ion-col class="friend-item" size="2">
-        <ion-img [src]="'http://placeimg.com/206/206/tech'"></ion-img>
-        <span class="friend-name">
-          Bruce
-        </span>
-      </ion-col>
-      <ion-col class="friend-item" size="2">
-        <ion-img [src]="'http://placeimg.com/207/207/arch'"></ion-img>
-        <span class="friend-name">
-          Cody
-        </span>
-      </ion-col>
-      <ion-col class="friend-item" size="2">
-        <ion-img [src]="'http://placeimg.com/208/208/nature'"></ion-img>
-        <span class="friend-name">
-          Danny
-        </span>
-      </ion-col>
-      <ion-col class="friend-item" size="2">
-        <ion-img [src]="'http://placeimg.com/209/209/animals'"></ion-img>
-        <span class="friend-name">
-          Esmond
+          {{ pageFriend.firstName }}
         </span>
       </ion-col>
     </ion-row>
@@ -66,33 +42,19 @@
       <h3 class="details-section-title">Photos</h3>
       <a class="heading-call-to-action">See all</a>
     </ion-row>
-    <ion-row class="pictures-row">
-      <ion-col class="picture-item" size="2">
-          <ion-img [src]="'http://placeimg.com/350/350/any'"></ion-img>
-      </ion-col>
-      <ion-col class="picture-item" size="2">
-          <ion-img [src]="'http://placeimg.com/351/351/nature'"></ion-img>
-      </ion-col>
-      <ion-col class="picture-item" size="2">
-          <ion-img [src]="'http://placeimg.com/345/345/animals'"></ion-img>
-      </ion-col>
-      <ion-col class="picture-item" size="2">
-          <ion-img [src]="'http://placeimg.com/375/375/tech'"></ion-img>
-      </ion-col>
-      <ion-col class="picture-item" size="2">
-          <ion-img [src]="'http://placeimg.com/400/400/arch'"></ion-img>
-      </ion-col>
-      <ion-col class="picture-item" size="2">
-          <ion-img [src]="'http://placeimg.com/390/390/people'"></ion-img>
-      </ion-col>
-      <ion-col class="picture-item" size="2">
-          <ion-img [src]="'http://placeimg.com/440/440/tech/sepia'"></ion-img>
-      </ion-col>
-      <ion-col class="picture-item" size="2">
-          <ion-img [src]="'http://placeimg.com/408/408/any/grayscale'"></ion-img>
-      </ion-col>
-    </ion-row>
+
   </div>
+  <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor="let pagePhoto of pagePhotos">
+          <div>
+            <ion-item class="grid" detail="false" button="true" class="grid" lines="none" (click)="viewPhotoDetails($event, pagePhoto)">
+              <ion-img click class="scaled cover" [src]="'/assets' + pagePhoto.url" ></ion-img>
+            </ion-item>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 
   <ion-toolbar>
     <ion-button expand="full" (click)="userLogout()">
