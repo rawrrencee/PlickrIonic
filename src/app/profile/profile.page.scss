@@ -258,7 +258,7 @@ page-profile {
 
 .user-photos-section {
   margin: calc(var(--page-margin) * 2) var(--page-margin) var(--page-margin);
-  padding-bottom: calc(var(--page-margin) * 2);
+  padding-bottom: 0;
 
   .heading-row {
     margin-bottom: var(--page-margin);
@@ -286,5 +286,25 @@ page-profile {
       padding: 0px var(--page-pictures-gutter) calc(var(--page-pictures-gutter) * 2);
     }
   }
+}
+
+ion-item.grid {
+  --inner-padding-start: 0;
+  --inner-padding-end: 0;
+  --inner-padding-top: 0;
+  --inner-padding-bottom: 0;
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-top: 0;
+  --padding-bottom: 0;
+}
+
+ion-img.scaled {
+  width: 200px;
+  height: 200px;
+}
+
+.cover {
+  object-fit: cover;
 }
 

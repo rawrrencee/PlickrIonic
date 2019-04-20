@@ -32,6 +32,30 @@ export class PhotoService {
     );
   }
 
+  retrievePrivatePhotos(): Observable<any>{
+    return this.httpClient.get<any>(this.baseUrl + "/retrievePrivatePhotos").pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  retrieveFriendsOnlyPhotos(): Observable<any>{
+    return this.httpClient.get<any>(this.baseUrl + "/retrieveFriendsOnlyPhotos").pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  retrieveFriendsOnlyAndPublicPhotosByUser(userId: Number): Observable<any>{
+    return this.httpClient.get<any>(this.baseUrl + "/retrieveFriendsOnlyAndPublicPhotosByUser?userId=" + userId).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  retrieveProfilePagePhotos(userId: Number): Observable<any>{
+    return this.httpClient.get<any>(this.baseUrl + "/retrieveProfilePagePhotos?userId=" + userId).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   retrievePhotoDetails(photoId: number): Observable<any> {
     return this.httpClient.get<any>(this.baseUrl + "/photoDetails?photoId=" + photoId).pipe(
       catchError(this.handleError)
