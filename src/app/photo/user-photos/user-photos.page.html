@@ -1,9 +1,32 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>userPhotos</ion-title>
-  </ion-toolbar>
-</ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
 
 <ion-content>
-
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+          refreshingText="Refreshing...">
+        </ion-refresher-content>
+      </ion-refresher>
+      
+      <ion-grid>
+          <ion-row>
+            <ion-col size="4" *ngFor="let allPhoto of allPhotos">
+              <div>
+                <ion-item detail="false" button="true" class="grid" lines="none" (click)="viewPhotoDetails($event, allPhoto)">
+                  <ion-img click class="scaled cover" [src]="'/assets' + allPhoto.url"></ion-img>
+                </ion-item>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+    
+      <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading..">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
 </ion-content>
