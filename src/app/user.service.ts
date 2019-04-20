@@ -61,6 +61,18 @@ export class UserService {
 		);
 	}
 
+	retrieveFollowingsList(userId: Number): Observable<any>{
+		return this.httpClient.get<any>(this.baseUrl + "/retrieveFollowingsList?userId=" + userId).pipe(
+		  catchError(this.handleError)
+		);
+	}
+
+	retrieveFollowersList(userId: Number): Observable<any>{
+		return this.httpClient.get<any>(this.baseUrl + "/retrieveFollowersList?userId=" + userId).pipe(
+		  catchError(this.handleError)
+		);
+	}
+
 	private handleError(error: HttpErrorResponse) {
 		let errorMessage: string = "";
 

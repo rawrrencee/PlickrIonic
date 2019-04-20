@@ -17,13 +17,21 @@ import { Notification } from '../notifications/notification';
 })
 export class NotificationsPage implements OnInit {
 
-  public notifications: Notification[] = [];
-  retrieveNotificationsError: boolean;
+  public notifications: Notification[];
+  private activatedRoute: ActivatedRoute;
+  private router: Router;
+  private notificationsService: NotificationsService;
+  private photoService: PhotoService;
+  private retrieveNotificationsError: boolean;
 
-  constructor(private activatedRouter: ActivatedRoute,
-    private router : Router,
-    private notificationsService: NotificationsService,
-    private photoService: PhotoService) {
+  constructor(activatedRoute: ActivatedRoute,
+    router: Router,
+    notificationsService: NotificationsService,
+    photoService: PhotoService) {
+    this.activatedRoute = activatedRoute;
+    this.router = router;
+    this.notificationsService = notificationsService;
+    this.photoService = photoService;
     this.retrieveNotificationsError = false;
   }
 

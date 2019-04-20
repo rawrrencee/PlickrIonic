@@ -9,15 +9,10 @@ const routes: Routes = [
   { path: '', loadChildren: './tabs/tabs.module#TabsPageModule' },
   { path: 'shoppingcart', loadChildren: './shoppingcart/shoppingcart.module#ShoppingcartPageModule' },
   { path: 'photo/viewPhotoDetails/:photoId', loadChildren: './photo/view-photo-details/view-photo-details.module#ViewPhotoDetailsPageModule' },
-  { path: 'friends', loadChildren: './friends/friends.module#FriendsPageModule' },
-  { path: 'user-photos', loadChildren: './photo/user-photos/user-photos.module#UserPhotosPageModule' },
+  { path: 'friends/:userId', loadChildren: './friends/friends.module#FriendsPageModule' },
+  { path: 'photo/userPhotos/:userId', loadChildren: './photo/user-photos/user-photos.module#UserPhotosPageModule' },
   { path: 'photo/uploadphoto', loadChildren: './photo/upload-photo/upload-photo.module#UploadPhotoPageModule' },
   { path: 'photo/editphotodetails/:photoId', loadChildren: './photo/edit-photo-details/edit-photo-details.module#EditPhotoDetailsPageModule' },
-
-
-
-
-
 
 ];
 @NgModule({

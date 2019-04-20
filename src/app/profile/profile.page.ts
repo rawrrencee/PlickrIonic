@@ -21,6 +21,9 @@ export class ProfilePage implements OnInit {
   private pageFriends: User[] =[];
   private allFriends: User[] =[];
 
+  userId: number = null;
+
+
   constructor(private router: Router,
     public sessionService: SessionService, private photoService: PhotoService, private userService: UserService) {
    }
@@ -48,6 +51,16 @@ export class ProfilePage implements OnInit {
 
   viewPhotoDetails(event, photo) {
     this.router.navigate(["/photo/viewPhotoDetails/" + photo.photoId]);
+  }
+
+  userPhotos(event) {
+    this.userId = this.sessionService.getUserId();
+    this.router.navigate(["/photo/userPhotos/" + this.userId]);
+  }
+
+  friends(event){
+    this.userId = this.sessionService.getUserId();
+    this.router.navigate(["/friends/" + this.userId]);
   }
 
   userLogout(): void {
