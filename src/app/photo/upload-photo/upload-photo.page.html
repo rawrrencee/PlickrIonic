@@ -3,34 +3,44 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
+    <ion-title>Upload Image</ion-title>
   </ion-toolbar>
 </ion-header>
- 
+
 <ion-content padding>
-  <h3 *ngIf="images.length == 0" text-center>Please Select Image!</h3>
- 
-  <ion-list>
-    <ion-item *ngFor="let img of images; index as pos" text-wrap>
-      <ion-thumbnail slot="start">
-        <ion-img [src]="img.path"></ion-img>
-      </ion-thumbnail>
-      <ion-label>
+  <h5 *ngIf="images.length == 0" text-center>Access your saved photos here.</h5>
+
+  <ion-list *ngFor="let img of images; index as pos">
+    <ion-row>
+      <ion-col>
+        <ion-img style="height: 100%;" [src]="img.path"></ion-img>
+      </ion-col>
+    </ion-row>
+    <p></p>
+    <ion-row>
+      <ion-label style="display: block; margin:auto; ">
         {{ img.name }}
       </ion-label>
-      <ion-button slot="end" fill="clear" (click)="startUpload(img)">
+    </ion-row>
+    <p></p>
+    <ion-row style="display: block; text-align: center;">
+      <ion-button fill="clear" (click)="startUpload(img)">
         <ion-icon slot="icon-only" name="cloud-upload"></ion-icon>
+        &nbsp;&nbsp;Upload
       </ion-button>
-      <ion-button slot="end" fill="clear" (click)="deleteImage(img, pos)">
+      <ion-button fill="clear" (click)="deleteImage(img, pos)">
         <ion-icon slot="icon-only" name="trash"></ion-icon>
+        &nbsp;&nbsp;Delete
       </ion-button>
-    </ion-item>
+    </ion-row>
   </ion-list>
 </ion-content>
- 
+
 <ion-footer>
   <ion-toolbar color="primary">
     <ion-button fill="clear" expand="full" color="light" (click)="selectImage()">
       <ion-icon slot="start" name="camera"></ion-icon>
-      Select Image</ion-button>
+      Select Image
+    </ion-button>
   </ion-toolbar>
 </ion-footer>

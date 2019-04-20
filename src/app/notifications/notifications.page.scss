@@ -10,6 +10,11 @@ ion-item.grid {
   --padding-bottom: 0;
 }
 
+.notification-image {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .notifications-content {
   ion-item-divider {
     --background: var(--ion-color-light);

@@ -9,9 +9,11 @@ export class Photo {
     dateUploaded: Date;
     privacyLevel: PrivacyLevelEnum;
     user: User;
+    price: number;
+    commercial: boolean;
 
 
-    constructor(photoId?: number, name?: string, description?: string, url?: string, dateUploaded?: Date, privacyLevel?: PrivacyLevelEnum, user?: User) {
+    constructor(price?: number, commercial?: boolean, photoId?: number, name?: string, description?: string, url?: string, dateUploaded?: Date, privacyLevel?: PrivacyLevelEnum, user?: User) {
         this.photoId = photoId;
         this.name = name;
         this.description = description;
@@ -19,6 +21,8 @@ export class Photo {
         this.dateUploaded = dateUploaded;
         this.privacyLevel = privacyLevel;
         this.user = user;
+        this.price = price;
+        this.commercial = commercial;
     }
 }
 

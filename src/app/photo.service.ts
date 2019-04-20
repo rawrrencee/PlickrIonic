@@ -32,25 +32,25 @@ export class PhotoService {
     );
   }
 
-  retrievePrivatePhotos(): Observable<any>{
+  retrievePrivatePhotos(): Observable<any> {
     return this.httpClient.get<any>(this.baseUrl + "/retrievePrivatePhotos").pipe(
       catchError(this.handleError)
     );
   }
 
-  retrieveFriendsOnlyPhotos(): Observable<any>{
+  retrieveFriendsOnlyPhotos(): Observable<any> {
     return this.httpClient.get<any>(this.baseUrl + "/retrieveFriendsOnlyPhotos").pipe(
       catchError(this.handleError)
     );
   }
 
-  retrieveFriendsOnlyAndPublicPhotosByUser(userId: Number): Observable<any>{
+  retrieveFriendsOnlyAndPublicPhotosByUser(userId: Number): Observable<any> {
     return this.httpClient.get<any>(this.baseUrl + "/retrieveFriendsOnlyAndPublicPhotosByUser?userId=" + userId).pipe(
       catchError(this.handleError)
     );
   }
 
-  retrieveProfilePagePhotos(userId: Number): Observable<any>{
+  retrieveProfilePagePhotos(userId: Number): Observable<any> {
     return this.httpClient.get<any>(this.baseUrl + "/retrieveProfilePagePhotos?userId=" + userId).pipe(
       catchError(this.handleError)
     );
@@ -64,6 +64,15 @@ export class PhotoService {
 
   retrievePhotoByInteractionId(interactionId: number): Observable<any> {
     return this.httpClient.get<any>(this.baseUrl + "/retrievePhotoFromInteraction?interactionId=" + interactionId).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  editPhotoDetails(photoToEdit: Photo): Observable<any> {
+    let editPhotoDetailsReq = {
+      "photo": photoToEdit
+    };
+    return this.httpClient.put<any>(this.baseUrl + "/editPhotoDetails", editPhotoDetailsReq, httpOptions).pipe(
       catchError(this.handleError)
     );
   }

@@ -38,7 +38,7 @@ export class UserService {
 			"newUser": newUser
 		};
 
-		return this.httpClient.put<any>(this.baseUrl + "/registerUser", registerUserReq, httpOptions).pipe(
+		return this.httpClient.post<any>(this.baseUrl + "/registerUser", registerUserReq, httpOptions).pipe(
 			catchError(this.handleError)
 		);
 	}

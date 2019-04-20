@@ -23,15 +23,13 @@ export class FeedPage implements OnInit {
   }
   ngOnInit() {
 
-    
-
     this.photoService.retrieveFriendsOnlyAndPublicPhotosByUser(this.sessionService.getUserId()).subscribe(
       response => {
         for (let photo of response.photos) {
-          
+
           this.userService.retrieveUserByPhoto(photo.photoId).subscribe(
             response => {
-              
+
               photo.user = response.user;
               console.log(photo.description);
             }, error => {
@@ -50,6 +48,17 @@ export class FeedPage implements OnInit {
   }
   viewPhotoDetails(event, photo) {
     this.router.navigate(["/photo/viewPhotoDetails/" + photo.photoId]);
+  }
+
+  doRefresh(event) {
+    console.log('Begin async operation');
+
+    window.location.reload();
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 2500);
   }
 }
 

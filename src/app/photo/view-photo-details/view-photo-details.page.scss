@@ -30,6 +30,23 @@
     margin: auto;
   }
 
+  .aux-action-col {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
+  .quantity-button {
+    margin-top: 10px;
+    padding-left: 10px;
+  }
+
+  .cart-button {
+    padding-top: 10px;
+    padding-right: 10px;
+  }
+
   .photo-details-content {
     --background: var(--page-background);
   
@@ -90,15 +107,6 @@
       .main-call-to-action-col {
         padding-bottom: 0px;
       }
-  
-      .select-variant-btn {
-        margin: 0px;
-      }
-  
-      .add-to-cart-btn {
-        margin: 0px;
-        margin-top: var(--page-margin);
-      }
     }
   
     .detail-title {
@@ -110,7 +118,7 @@
     }
   
     .details-description-wrapper {
-      padding-top: 0px;
+      padding-top: 10px;
       padding-left: var(--page-margin);
       padding-right: var(--page-margin);
       padding-bottom: calc(var(--page-margin) * 2);

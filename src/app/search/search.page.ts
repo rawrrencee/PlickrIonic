@@ -97,8 +97,8 @@ export class SearchPage implements OnInit {
       response => {
         this.photos = response.photos;
         for (let photo of this.photos) {
-          if (this.lastIndexLoaded == 9) {
-            this.currentIndexLoaded = 9;
+          if (this.lastIndexLoaded == 12) {
+            this.currentIndexLoaded = 12;
             break;
           }
           this.photosLoaded[this.lastIndexLoaded] = this.photos[this.lastIndexLoaded];

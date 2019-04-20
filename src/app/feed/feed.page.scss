@@ -3,14 +3,42 @@
   overflow: hidden;
 }
 
+ion-item.grid {
+  --inner-padding-start: 0;
+  --inner-padding-end: 0;
+  --inner-padding-top: 0;
+  --inner-padding-bottom: 0;
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-top: 0;
+  --padding-bottom: 0;
+}
+
+ion-card.feed {
+  width: 100%;
+}
+
+.avatar-image {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
 .feed-profile-pic {
   margin-top: 15px;
   max-width: 90px;
 }
 
-.feed-content-tab {
+.feed-content-uploader {
   margin-top: 15px;
-  width: 80%;
+  padding-left: 15px;
+  display: block;
+  text-align: left;
+}
+
+.feed-content-date {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .feed-content {
@@ -19,6 +47,7 @@
   width: 100%;
   color: black;
 }
+
 
 hr {
   display: block;

@@ -6,6 +6,7 @@ import { AlertController } from '@ionic/angular';
 
 import { PhotoService } from '../../photo.service';
 import { UserService } from '../../user.service';
+import { SessionService } from '../../session.service';
 import { Photo } from '../../photo';
 import { User } from '../../user';
 import { PrivacyLevelEnum } from 'src/app/privacy-level-enum.enum';
@@ -30,19 +31,42 @@ export class ViewPhotoDetailsPage implements OnInit {
   retrievePhotoError: boolean;
 
   error: boolean;
-	errorMessage: string;
-	resultSuccess: boolean;
+  errorMessage: string;
+  resultSuccess: boolean;
 
   constructor(private router: Router,
-    private activatedRoute: ActivatedRoute,				
+    private activatedRoute: ActivatedRoute,
     private photoService: PhotoService,
     private userService: UserService,
+    public sessionService: SessionService,
     public alertController: AlertController,
-    private location: Location) { 
-      this.retrievePhotoError = false;
-      this.error = false;
-      this.resultSuccess = false;
-    }
+    private location: Location) {
+    this.retrievePhotoError = false;
+    this.error = false;
+    this.resultSuccess = false;
+  }
+
+  ionViewWillEnter() {
+    this.photoId = parseInt(this.activatedRoute.snapshot.paramMap.get('photoId'));
+
+    this.photoService.retrievePhotoDetails(this.photoId).subscribe(
+      response => {
+        this.photoToView = response.photo;
+      }, error => {
+        this.retrievePhotoError = true;
+        console.log('viewPhotoDetails.ts: ' + error);
+      }
+    );
+
+    this.userService.retrievePhotoUploader(this.photoId).subscribe(
+      response => {
+        this.uploader = response.user;
+      }, error => {
+        this.retrieveUserError = true;
+        console.log('viewPhotoDetails.ts: ' + error);
+      }
+    );
+  }
 
   ngOnInit() {
     this.photoId = parseInt(this.activatedRoute.snapshot.paramMap.get('photoId'));
@@ -64,6 +88,21 @@ export class ViewPhotoDetailsPage implements OnInit {
         console.log('viewPhotoDetails.ts: ' + error);
       }
     );
+  }
+
+  editPhotoDetails(event) {
+    this.router.navigate(["photo/editphotodetails/" + this.photoToView.photoId]);
+  }
+
+  doRefresh(event) {
+    console.log('Begin async operation');
+
+    window.location.reload();
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 2500);
   }
 
 }

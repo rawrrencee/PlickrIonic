@@ -1,69 +1,76 @@
 <ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-back-button></ion-back-button>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content class="photo-details-content">
-    <ion-row>
-      <ion-col >
-        <ion-item class="grid" lines="none">
-          <ion-img class="scaled" [src]="'/assets' + photoToView.url"></ion-img>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <div class="description-wrapper">
-      <h3 class="details-name">
-        {{photoToView.name}}
-      </h3>
-      <span class="details-uploader">
-        {{uploader.firstName}} {{uploader.lastName}}
-      </span>
-      <span class="details-price">
-        $100 (Placeholder)
-      </span>
-      <span class="details-sale-price">
-        $50 (Placeholder)
-      </span>
-    </div>
-    <ion-row class="details-purchase-options-row">
-        <ion-col size="12" class="aux-action-col">
-          <ion-button class="size-chart-btn" color="medium" size="small" fill="clear">Information</ion-button>
-        </ion-col>
-        <ion-col size="6">
-          <ion-button class="select-variant-btn" color="medium" expand="block" fill="outline" (click)="openColorChooser()">Type</ion-button>
-        </ion-col>
-        <ion-col size="6">
-          <ion-button class="select-variant-btn" color="medium" expand="block" fill="outline" (click)="openSizeChooser()">Quantity</ion-button>
-        </ion-col>
-        <ion-col size="12" class="main-call-to-action-col">
-          <ion-button class="add-to-cart-btn" color="dark" expand="block" fill="solid">Add to Cart</ion-button>
-        </ion-col>
-      </ion-row>
-      <div class="details-description-wrapper">
-          <h3 class="detail-title">Description</h3>
-          <p class="details-description">
-            {{photoToView.description}}
-          </p>
-        </div>
-        <div class="details-description-wrapper">
-            <h3 class="detail-title">Date uploaded</h3>
-            <p class="details-description">
-              {{photoToView.dateUploaded | date: "dd MMM yyyy HH:mm"}}
-            </p>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="photo-details-content">
+  <ion-card>
+
+    <ion-card-content>
+
+      <form #editPhotoDetailsForm="ngForm" (ngSubmit)="submit(editPhotoDetailsForm)">
+
+        <div style="color: red;">
+
+          <div *ngIf="name.invalid && (name.dirty || name.touched || submitted)" class="errorText">
+            <div *ngIf="name.errors.required">
+              Name is required.
+            </div>
           </div>
-        <div class="details-description-wrapper">
-          <h3 class="detail-title">Privacy Level</h3>
-          <p class="details-description">
-            {{photoToView.privacyLevel}}
-          </p>
         </div>
-        <div class="details-description-wrapper">
-            <h3 class="detail-title">Photo ID</h3>
-            <p class="details-description">
-              {{photoToView.photoId}}
-            </p>
-          </div>
-  </ion-content>
+
+        <ion-list>
+
+          <ion-item>
+            <ion-label><b>Name</b></ion-label>
+            <ion-input type="text" id="name" name="name" [(ngModel)]="photoToEdit.name" required="true" #name="ngModel"
+              placeholder='{{photoToEdit.name}}'>
+            </ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label><b>Description</b></ion-label>
+            <ion-input type="text" id="description" name="description" [(ngModel)]="photoToEdit.description" #description="ngModel">
+            </ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label><b>Commercial</b></ion-label>
+            <ion-checkbox id="commercial" name="commercial" [(ngModel)]="photoToEdit.commercial" required="true"
+              #commercial="ngModel">
+            </ion-checkbox>
+          </ion-item>
+
+          <ion-item>
+            <ion-label><b>Privacy Level</b></ion-label>
+            <ion-select placeholder="Select" id="privacyLevel" name="privacyLevel"
+              [(ngModel)]="photoToEdit.privacyLevel" #privacyLevel="ngModel">
+              <ion-select-option value="PUBLIC">Public</ion-select-option>
+              <ion-select-option value="FRIENDSONLY">Friends Only</ion-select-option>
+              <ion-select-option value="PRIVATE">Private</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label><b>Price</b></ion-label>
+            <ion-input type="number" id="price" name="price" [(ngModel)]="photoToEdit.price" #price="ngModel">
+            </ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-button color="dark" type="submit" ion-button block>
+              Update
+            </ion-button>
+          </ion-item>
+
+        </ion-list>
+
+      </form>
+
+    </ion-card-content>
+
+  </ion-card>
+</ion-content>

@@ -169,7 +169,7 @@ export class UploadPhotoPage implements OnInit {
       var correctPath = imgEntry.filePath.substr(0, imgEntry.filePath.lastIndexOf('/') + 1);
 
       this.file.removeFile(correctPath, imgEntry.name).then(res => {
-        this.presentToast('File removed.');
+        //this.presentToast('File removed.');
       });
     });
   }
@@ -203,7 +203,7 @@ export class UploadPhotoPage implements OnInit {
     });
     await loading.present();
 
-    this.http.post<any>("/api/Photo/upload?userId=" + this.sessionService.getCurrentUser().userId, formData)
+    this.http.post<any>("/api/Photo/uploadPhoto?userId=" + this.sessionService.getCurrentUser().userId, formData)
       .pipe(
         finalize(() => {
           loading.dismiss();
