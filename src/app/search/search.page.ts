@@ -68,7 +68,7 @@ export class SearchPage implements OnInit {
         event.target.disabled = true;
       }
       for (let i = this.lastIndexLoaded; i < this.photos.length; i++) {
-        if (this.count == 9) {
+        if (this.count == 12) {
           this.lastIndexLoaded = i;
           console.log('last index loaded=' + this.lastIndexLoaded);
           this.count = 0;

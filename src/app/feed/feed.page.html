@@ -14,7 +14,7 @@
         </ion-refresher-content>
     </ion-refresher>
 
-    <ion-item class="grid" lines="none" *ngFor="let photo of photos">
+    <ion-item class="grid" lines="none" *ngFor="let photo of photosLoaded">
         <ion-card class="feed">
             <ion-card-content class="feed">
                 <ion-img [src]="'/assets' + photo.url" (click)="viewPhotoDetails($event, photo)"></ion-img>
@@ -50,4 +50,9 @@
             </ion-card-content>
         </ion-card>
     </ion-item>
+
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="getNext5Feed($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading..">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 </ion-content>

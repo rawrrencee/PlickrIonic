@@ -48,8 +48,8 @@
       <ion-row>
         <ion-col size="6" *ngFor="let pagePhoto of pagePhotos">
           <div>
-            <ion-item class="grid" detail="false" button="true" class="grid" lines="none" (click)="viewPhotoDetails($event, pagePhoto)">
-              <ion-img click class="scaled cover" [src]="'/assets' + pagePhoto.url" ></ion-img>
+            <ion-item class="grid" detail="false" button="true" lines="none" (click)="viewPhotoDetails($event, pagePhoto)">
+              <ion-img class="scaled cover" [src]="'/assets' + pagePhoto.url" ></ion-img>
             </ion-item>
           </div>
         </ion-col>

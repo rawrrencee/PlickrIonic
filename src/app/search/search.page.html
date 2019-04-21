@@ -21,7 +21,7 @@
         <ion-col size="4" *ngFor="let photo of photosLoaded">
           <div>
             <ion-item detail="false" button="true" class="grid" lines="none" (click)="viewPhotoDetails($event, photo)">
-              <ion-img click class="scaled cover" [src]="'/assets' + photo.url"></ion-img>
+              <ion-img class="scaled cover" [src]="'/assets' + photo.url"></ion-img>
             </ion-item>
           </div>
         </ion-col>

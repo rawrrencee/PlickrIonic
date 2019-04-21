@@ -10,9 +10,8 @@
 </ion-header>
 
 <ion-content class="notifications-content">
-  <ng-container>
-    <ion-item-group>
-      <ion-item class="notification-item" lines="none" *ngFor="let notification of notifications">
+
+      <ion-item class="notification-item" lines="none" *ngFor="let notification of notifsLoaded">
         <ion-row class="notification-item-wrapper">
           <ion-col size="2">
             <ion-avatar>
@@ -24,18 +23,22 @@
             <p class="details-description">{{ notification.content }}</p>
             <p class="date-created">{{ notification.dateCreated | date:'dd MMM yy' }}</p>
           </ion-col>
-<!--           <ion-col size="2" class="date-wrapper">
+          <!--           <ion-col size="2" class="date-wrapper">
             <h3 class="notification-date">{{ notification.dateCreated | date:'dd MMM yy' }}</h3>
           </ion-col> -->
           <ion-col size="2" class="notification-image">
             <ion-thumbnail>
-              <ion-item class="grid" detail="false" button="true" lines="none" (click)="viewPhotoDetails($event, notification.photo)">
+              <ion-item class="grid" detail="false" button="true" lines="none"
+                (click)="viewPhotoDetails($event, notification.photo)">
                 <ion-img [src]="'/assets' + notification.photo.url"></ion-img>
               </ion-item>
             </ion-thumbnail>
           </ion-col>
         </ion-row>
       </ion-item>
-    </ion-item-group>
-  </ng-container>
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="serve10Notifications($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading..">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

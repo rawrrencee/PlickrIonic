@@ -94,15 +94,4 @@ export class ViewPhotoDetailsPage implements OnInit {
     this.router.navigate(["photo/editphotodetails/" + this.photoToView.photoId]);
   }
 
-  doRefresh(event) {
-    console.log('Begin async operation');
-
-    window.location.reload();
-
-    setTimeout(() => {
-      console.log('Async operation has ended');
-      event.target.complete();
-    }, 2500);
-  }
-
 }
