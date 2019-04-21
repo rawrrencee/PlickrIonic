@@ -106,6 +106,10 @@ export class FeedPage implements OnInit {
     this.router.navigate(["/photo/viewPhotoDetails/" + photo.photoId]);
   }
 
+  viewUserDetails(event, user) {
+    this.router.navigate(["../viewProfilePage/" + user.userId]);
+  }
+
   doRefresh(event) {
     console.log('Begin async operation');
 

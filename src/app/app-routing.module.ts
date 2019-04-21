@@ -14,7 +14,8 @@ const routes: Routes = [
   { path: 'photo/uploadphoto', loadChildren: './photo/upload-photo/upload-photo.module#UploadPhotoPageModule' },
   { path: 'photo/editphotodetails/:photoId', loadChildren: './photo/edit-photo-details/edit-photo-details.module#EditPhotoDetailsPageModule' },
   { path: 'comment/:photoId', loadChildren: './comment/comment.module#CommentPageModule' },
-
+  { path: 'viewProfilePage/:userId', loadChildren: './view-profile/view-profile.module#ViewProfilePageModule' },
+  
 
 
 ];

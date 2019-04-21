@@ -29,7 +29,7 @@
     </ion-row>
     <ion-row class="friends-row" >
       <ion-col class="friend-item" size="2" *ngFor="let pageFriend of pageFriends">
-        <ion-img [src]="'/assets' + pageFriend.profileImage"></ion-img>
+        <ion-img [src]="'/assets' + pageFriend.profileImage" (click)="viewUserDetails($event, pageFriend)"></ion-img>
         <span class="friend-name">
           {{ pageFriend.firstName }}
         </span>

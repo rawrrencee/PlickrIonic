@@ -103,4 +103,8 @@ export class ProfilePage implements OnInit {
     this.router.navigate(['login']);
   }
 
+  viewUserDetails(event, user) {
+    this.router.navigate(["../viewProfilePage/" + user.userId]);
+  }
+
 }
