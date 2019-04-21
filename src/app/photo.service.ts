@@ -83,6 +83,12 @@ export class PhotoService {
     );
   }
 
+  retrieveCommercialPhotos():Observable<any> {
+    return this.httpClient.get<any>(this.baseUrl + "/retrieveCommercialPhotos").pipe(
+      catchError(this.handleError)
+    );
+  }
+
 
   private handleError(error: HttpErrorResponse) {
     let errorMessage: string = "";

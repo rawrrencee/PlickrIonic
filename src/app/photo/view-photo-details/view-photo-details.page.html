@@ -35,7 +35,7 @@
         Quantity</ion-button>
     </ion-col>
     <ion-col size="6" class="cart-button" *ngIf="photoToView.commercial === true">
-      <ion-button class="add-to-cart-btn" color="dark" expand="block" fill="solid">Add to Cart</ion-button>
+      <ion-button (click)="addToCart(photoToView)" class="add-to-cart-btn" color="dark" expand="block" fill="solid">Add to Cart</ion-button>
     </ion-col>
   </ion-row>
   <div class="details-description-wrapper">

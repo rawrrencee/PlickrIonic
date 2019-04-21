@@ -17,7 +17,6 @@ import { Photo } from '../photo';
 export class SearchPage implements OnInit {
 
   shoppingCart = [];
-  items = [];
   photos: Photo[];
   photosLoaded: Photo[];
   currentIndexLoaded: number = 0;
@@ -35,15 +34,14 @@ export class SearchPage implements OnInit {
   constructor(private router: Router, private location: Location, private shoppingCartService: ShoppingCartService, private photoService: PhotoService) { }
 
   ngOnInit() {
-    this.items = this.shoppingCartService.getProducts();
     this.shoppingCart = this.shoppingCartService.getCart();
     this.photos = [];
     this.photosLoaded = [];
     this.updatePhotos();
   }
 
-  addToCart(product) {
-    this.shoppingCartService.addProduct(product);
+  addToCart(item) {
+    this.shoppingCartService.addPhoto(item);
   }
 
   openShoppingCart() {

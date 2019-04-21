@@ -7,6 +7,7 @@ import { AlertController } from '@ionic/angular';
 import { PhotoService } from '../../photo.service';
 import { UserService } from '../../user.service';
 import { SessionService } from '../../session.service';
+import { ShoppingCartService } from '../../shoppingcart.service';
 import { Photo } from '../../photo';
 import { User } from '../../user';
 import { PrivacyLevelEnum } from 'src/app/privacy-level-enum.enum';
@@ -38,6 +39,7 @@ export class ViewPhotoDetailsPage implements OnInit {
     private activatedRoute: ActivatedRoute,
     private photoService: PhotoService,
     private userService: UserService,
+    private shoppingCartService: ShoppingCartService,
     public sessionService: SessionService,
     public alertController: AlertController,
     private location: Location) {
@@ -92,6 +94,11 @@ export class ViewPhotoDetailsPage implements OnInit {
 
   editPhotoDetails(event) {
     this.router.navigate(["photo/editphotodetails/" + this.photoToView.photoId]);
+  }
+
+  addToCart(item) {
+    this.shoppingCartService.addPhoto(item);
+    this.router.navigate(['shoppingcart']);
   }
 
 }
