@@ -13,6 +13,9 @@ const routes: Routes = [
   { path: 'photo/userPhotos/:userId', loadChildren: './photo/user-photos/user-photos.module#UserPhotosPageModule' },
   { path: 'photo/uploadphoto', loadChildren: './photo/upload-photo/upload-photo.module#UploadPhotoPageModule' },
   { path: 'photo/editphotodetails/:photoId', loadChildren: './photo/edit-photo-details/edit-photo-details.module#EditPhotoDetailsPageModule' },
+  { path: 'comment/:photoId', loadChildren: './comment/comment.module#CommentPageModule' },
+
+
 
 ];
 @NgModule({

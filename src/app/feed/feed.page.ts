@@ -117,6 +117,9 @@ export class FeedPage implements OnInit {
     }, 2500);
   }
 
+  viewComments(event, photo) {
+    this.router.navigate(["/comment/" + photo.photoId]);
+  }
 }
 
 

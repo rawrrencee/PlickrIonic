@@ -89,6 +89,12 @@ export class PhotoService {
     );
   }
 
+  
+  retrieveComments(photoId: Number){
+    return this.httpClient.get<any>(this.baseUrl + "/retrieveComments?photoId=" + photoId).pipe(
+      catchError(this.handleError)
+    );
+  }
 
   private handleError(error: HttpErrorResponse) {
     let errorMessage: string = "";
