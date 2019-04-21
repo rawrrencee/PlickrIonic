@@ -4,7 +4,9 @@ import { Location } from '@angular/common';
 
 import { AlertController } from '@ionic/angular';
 
+import { SessionService } from '../session.service';
 import { PhotoService } from '../photo.service';
+import { FriendshipService } from '../friendship.service';
 import { UserService } from '../user.service';
 import { Photo } from '../photo';
 import { User } from '../user';
@@ -22,10 +24,12 @@ export class FriendsPage implements OnInit {
   private followersList: User[]=[];
   private followingsList: User[]=[];
 
-  constructor(private router: Router,
+  constructor(
+    public sessionService: SessionService, private router: Router,
     private activatedRoute: ActivatedRoute,				
     private photoService: PhotoService,
     private userService: UserService,
+    private friendshipService: FriendshipService,
     public alertController: AlertController,
     private location: Location,
     private cd: ChangeDetectorRef) { }
@@ -57,7 +61,16 @@ export class FriendsPage implements OnInit {
     this.cd.detectChanges();
   }
 
-  
+  unfollow(event, user1) {
+    this.friendshipService.unfollowUser(this.sessionService.getUserId(), user1.userId).subscribe(
+      response =>{
+
+      }, error => {
+
+      }
+
+    )
+  }
   
 
 }

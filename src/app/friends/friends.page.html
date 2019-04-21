@@ -25,7 +25,6 @@
           <ion-img [src]="'/assets' + follower.profileImage"></ion-img>
         </ion-avatar>
         <ion-label>{{follower.firstName}}</ion-label>
-        <ion-button class="user-action" expand="block" size="small" color="primary">Unfollow</ion-button>
       </ion-item>
     </ion-list>
 
@@ -35,7 +34,7 @@
           <ion-img [src]="'/assets' + following.profileImage"></ion-img>
         </ion-avatar>
         <ion-label>{{following.firstName}}</ion-label>
-        <ion-button class="user-action" expand="block" size="small" color="primary">Unfollow</ion-button>
+        <ion-button class="user-action" expand="block" size="small" color="primary" (click)="unfollow($event, following)">Unfollow</ion-button>
       </ion-item>
     </ion-list>
 

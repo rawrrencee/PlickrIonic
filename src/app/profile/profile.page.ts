@@ -21,7 +21,13 @@ export class ProfilePage implements OnInit {
   private pageFriends: User[] = [];
   private allFriends: User[] = [];
 
+  private followingList: User[] = [];
+  private followerList: User[] = [];
+
+
   userId: number = null;
+
+  currentUser: User;
 
 
   constructor(private router: Router,
@@ -38,6 +44,12 @@ export class ProfilePage implements OnInit {
         //console.log('getNotificationsOfUser.ts: ' + error);
       }
     );
+    this.userService.retrieveUserByUserByUserId(this.sessionService.getUserId()).subscribe(
+      response => {
+        this.followingList = response.user.followerList;
+        this.followerList = response.user.followingList;
+      }
+    )
     this.userService.retrieveFriends(this.sessionService.getUserId()).subscribe(
       response => {
 
