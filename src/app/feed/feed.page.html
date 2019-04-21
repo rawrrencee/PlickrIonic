@@ -34,17 +34,15 @@
                     <ion-label class="feed-content">{{ photo.description }}</ion-label>
                 </ion-row>
                 <hr>
-                <ion-row>
-                    <ion-col>
-                        <ion-icon name="star-outline"></ion-icon>
-                        <ion-label style="margin-left: 25px;">1</ion-label>
+                <ion-row style="height: 50px;">
+                    <ion-col size="4">
+                        <ion-icon name="heart"></ion-icon>
                     </ion-col>
-                    <ion-col>
-                        <ion-icon name="chatbubbles" (click)="viewComments($event, photo)"></ion-icon>
-                        <ion-label style="margin-left: 25px;">5</ion-label>
+                    <ion-col size="4">
+                        <ion-icon name="chatboxes" (click)="viewComments($event, photo)"></ion-icon>
                     </ion-col>
-                    <ion-col>
-                        <ion-icon style="position: absolute; right: 1%;" name="redo"></ion-icon>
+                    <ion-col size="4">
+                        <ion-icon style="position: absolute; right: 1%;" name="share"></ion-icon>
                     </ion-col>
                 </ion-row>
             </ion-card-content>

@@ -1,0 +1,87 @@
+// Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
+ion-item.grid {
+    --inner-padding-start: 0;
+    --inner-padding-end: 0;
+    --inner-padding-top: 0;
+    --inner-padding-bottom: 0;
+    --padding-start: 0;
+    --padding-end: 0;
+    --padding-top: 0;
+    --padding-bottom: 0;
+  }
+  
+  .notification-image {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .notifications-content {
+    ion-item-divider {
+      --background: var(--ion-color-light);
+      --padding-start: var(--page-margin);
+    }
+  
+    .notification-item {
+      --padding-start: 20px;
+      --padding-top: 10px;
+      --padding-bottom: 10px;
+      --padding-end: 10px;
+      --inner-padding-end: 0px;
+  
+      padding: var(--page-margin);
+      color: var(--ion-color-medium);
+      box-shadow: inset 0 8px 2px -9px var(--ion-color-darkest);
+  
+      .notification-item-wrapper {
+        --ion-grid-column-padding: 0px;
+  
+        width: 100%;
+        height: 75px;
+        align-items: center;
+      }
+  
+      .profile-image-wrapper {
+        width: 50px;
+        height: auto;
+      }
+  
+      .details-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding-left: 10px;
+  
+        .details-name {
+          margin-top: 0px;
+          margin-bottom: 5px;
+          font-size: 12px;
+          font-weight: 400;
+          letter-spacing: 0.2px;
+          color: var(--ion-color-secondary);
+        }
+  
+        .details-description {
+          font-size: 12px;
+          margin: 0px;
+        }
+  
+        .date-created {
+          padding-top: 5px;
+          font-size: 12px;
+          margin: 0px;
+        }
+      }
+  
+      .date-wrapper {
+        align-self: flex-start;
+        margin-right: 10px;
+  
+        .notification-date {
+          margin: 0px;
+          font-size: 12px;
+          text-align: start;
+        }
+      }
+    }
+  }
+  

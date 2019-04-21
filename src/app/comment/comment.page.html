@@ -9,7 +9,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="notifications-content">
   <!--     <ion-list padding *ngFor="let comment of comments">
         <ion-item >
             {{comment.description}}
@@ -19,21 +19,25 @@
         </ion-item>
     </ion-list> -->
 
-  <ion-grid *ngFor="let comment of comments">
-    <ion-row>
-      <ion-col>
-        {{comment.description}}
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        {{comment.time}}
-      </ion-col>
-      <ion-col>
-        {{comment.user.firstName}}
-      </ion-col>
-    </ion-row>
-  </ion-grid> 
+  <ion-item class="notification-item" lines="none" *ngFor="let comment of comments">
+      <ion-row class="notification-item-wrapper">
+        <ion-col size="2">
+          <ion-avatar>
+            <ion-img class="profile-image-wrapper" [src]="'/assets' + comment.user.profileImage"></ion-img>
+          </ion-avatar>
+        </ion-col>
+        <ion-col class="details-wrapper">
+          <h2 class="details-name">{{ comment.user.firstName }}</h2>
+          <p class="details-description">{{ comment.description }}</p>
+          <p class="date-created">{{ comment.time | date:'dd MMM yy' }}</p>
+        </ion-col>
+        <!--           <ion-col size="2" class="date-wrapper">
+          <h3 class="notification-date">{{ notification.dateCreated | date:'dd MMM yy' }}</h3>
+        </ion-col> -->
+      </ion-row>
+    </ion-item>
+
+    <ion-input mode="ios" color="dark" style="--padding-start: 50px; --background: #4a5664; --color:#fff; --placeholder-color: #fff; " placeholder="Leave a comment"></ion-input>
 
   <!---<form #newCommentForm="ngForm" (ngSubmit)="submit(newCommentForm)">
     <ion-list>
