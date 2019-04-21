@@ -89,6 +89,12 @@ export class PhotoService {
     );
   }
 
+  retrieveUserByCommentId(commentId: Number){
+    return this.httpClient.get<any>(this.baseUrl + "/retrieveUserByCommentId?commentId=" + commentId).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   private handleError(error: HttpErrorResponse) {
     let errorMessage: string = "";
 

@@ -94,4 +94,7 @@ export class ViewPhotoDetailsPage implements OnInit {
     this.router.navigate(["photo/editphotodetails/" + this.photoToView.photoId]);
   }
 
+  viewComments(event, photo) {
+    this.router.navigate(["/comment/" + photo.photoId]);
+  }
 }
