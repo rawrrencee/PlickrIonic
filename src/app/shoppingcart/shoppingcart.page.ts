@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { AlertController } from '@ionic/angular';
 import { ShoppingCartService } from '../shoppingcart.service';
+import { SessionService } from '../session.service';
 
 @Component({
   selector: 'app-shoppingcart',
@@ -10,9 +15,13 @@ export class ShoppingcartPage implements OnInit {
 
   selectedItems = [];
 
+  resultSuccess: boolean;
+  resultError: boolean;
+  message: string;
+
   total = 0;
 
-  constructor(private shoppingCartService: ShoppingCartService) { }
+  constructor(private shoppingCartService: ShoppingCartService, public sessionService: SessionService, ) { }
 
   ngOnInit() {
     let items = this.shoppingCartService.getCart();
@@ -55,5 +64,17 @@ export class ShoppingcartPage implements OnInit {
     }
     this.selectedItems = Object.keys(this.selectedItems).map(key => this.selectedItems[key]);
     this.total = this.selectedItems.reduce((a, b) => a + (b.count * b.price), 0);
+  }
+
+  createSaleTransaction(selectedItems) {
+    this.shoppingCartService.createSaleTransaction(selectedItems, this.sessionService.getCurrentUser().userId).subscribe(
+      response => {
+      },
+      error => {
+        this.resultError = true;
+        this.resultSuccess = false;
+        this.message = "An error has occurred while creating a sales transaction: " + error;
+      }
+    )
   }
 }
