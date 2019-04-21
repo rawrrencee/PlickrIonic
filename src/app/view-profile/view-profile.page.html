@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="user-details-section">
+    <ion-row class="user-image-wrapper">
+      <ion-img class="user-profile-pic" [src]="'/assets' + viewUser.profileImage"></ion-img>
+    </ion-row>
+    <ion-row style="width: 100%; margin-top: 15px;">
+      <ion-col class="user-name">
+        {{viewUser.firstName}} {{viewUser.lastName}}
+        <span class="user-membership">{{viewUser.userType}}</span>
+      </ion-col>
+    </ion-row>
+    <ion-row class="user-follow">
+      <div style=" width: 100%; text-align: center;">{{followerList.length}} Followers &ndash; {{followingList.length}}
+        Following</div>
+    </ion-row>
+
+  </ion-row>
+
+  <div class="user-friends-section">
+    <ion-row class="heading-row">
+      <h3 class="details-section-title">Following</h3>
+      <a class="heading-call-to-action" (click)="friends($event)">See all</a>
+    </ion-row>
+    <ion-row class="friends-row" >
+      <ion-col class="friend-item" size="2" *ngFor="let pageFriend of pageFriends">
+        <ion-img [src]="'/assets' + pageFriend.profileImage" (click)="viewUserDetails($event, pageFriend)"></ion-img>
+        <span class="friend-name">
+          {{ pageFriend.firstName }}
+        </span>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div class="user-photos-section">
+    <ion-row class="heading-row">
+      <h3 class="details-section-title">Photos</h3>
+      <a class="heading-call-to-action" (click)="userPhotos($event)">See all</a>
+    </ion-row>
+
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let pagePhoto of pagePhotos">
+        <div>
+          <ion-item class="grid" detail="false" button="true" lines="none"
+            (click)="viewPhotoDetails($event, pagePhoto)">
+            <ion-img class="scaled cover" [src]="'/assets' + pagePhoto.url"></ion-img>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
