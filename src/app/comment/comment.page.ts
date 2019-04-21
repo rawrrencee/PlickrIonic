@@ -103,8 +103,8 @@ export class CommentPage implements OnInit {
 
         //  console.log('editPhotoDetailsForm.ts: ' + error);
         //}
-      )
+      
     }
   }
 
-}
+
