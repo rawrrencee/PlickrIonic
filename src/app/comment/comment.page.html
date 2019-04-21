@@ -4,16 +4,51 @@
       <ion-back-button defaultHref="app/user"></ion-back-button>
     </ion-buttons>
     <ion-title>
-        Comments
+      Comments
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-list padding *ngFor="let comment of comments">
+  <!--     <ion-list padding *ngFor="let comment of comments">
         <ion-item >
             {{comment.description}}
+          
             <p>{{comment.time}}</p>
+            <p>{{comment.user.firstName}}</p>
         </ion-item>
+    </ion-list> -->
+
+  <ion-grid *ngFor="let comment of comments">
+    <ion-row>
+      <ion-col>
+        {{comment.description}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        {{comment.time}}
+      </ion-col>
+      <ion-col>
+        {{comment.user.firstName}}
+      </ion-col>
+    </ion-row>
+  </ion-grid> 
+
+  <!---<form #newCommentForm="ngForm" (ngSubmit)="submit(newCommentForm)">
+    <ion-list>
+      <ion-item>
+        <ion-label><b>Description</b></ion-label>
+        <ion-input type="text" id="description" name="description" [(ngModel)]="newComment.description" required="true"
+          #description="ngModel" placeholder='{{newComment.description}}'>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-button color="dark" type="submit" ion-button block>
+          Create Comment
+        </ion-button>
+      </ion-item>
     </ion-list>
+  </form>-->
 </ion-content>

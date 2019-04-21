@@ -82,6 +82,18 @@ export class PhotoService {
       catchError(this.handleError)
     );
   }
+  
+  retrieveComments(photoId: Number){
+    return this.httpClient.get<any>(this.baseUrl + "/retrieveComments?photoId=" + photoId).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  retrieveUserByCommentId(commentId: Number){
+    return this.httpClient.get<any>(this.baseUrl + "/retrieveUserByCommentId?commentId=" + commentId).pipe(
+      catchError(this.handleError)
+    );
+  }
 
   retrieveCommercialPhotos():Observable<any> {
     return this.httpClient.get<any>(this.baseUrl + "/retrieveCommercialPhotos").pipe(
@@ -89,12 +101,15 @@ export class PhotoService {
     );
   }
 
-  
-  retrieveComments(photoId: Number){
-    return this.httpClient.get<any>(this.baseUrl + "/retrieveComments?photoId=" + photoId).pipe(
-      catchError(this.handleError)
-    );
-  }
+  createNewComment(newComment: Comment): Observable<any> {
+		let newCommentReq = {
+			"newComment": newComment
+    };
+    
+    return this.httpClient.post<any>(this.baseUrl + "/createNewComment", newCommentReq, httpOptions).pipe(
+			catchError(this.handleError)
+		);
+	}
 
   private handleError(error: HttpErrorResponse) {
     let errorMessage: string = "";

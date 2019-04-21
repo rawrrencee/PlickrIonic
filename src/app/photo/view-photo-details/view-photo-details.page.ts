@@ -101,4 +101,7 @@ export class ViewPhotoDetailsPage implements OnInit {
     this.router.navigate(['shoppingcart']);
   }
 
+  viewComments(event, photo) {
+    this.router.navigate(["/comment/" + photo.photoId]);
+  }
 }
